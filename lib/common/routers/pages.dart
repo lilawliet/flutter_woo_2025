@@ -12,5 +12,6 @@ class RoutePages {
       // 绑定控制器
       binding: LoginBinding(),
     ),
+    GetPage(name: RouteNames.systemSplash, page: () => const SplashPage()),
   ];
 }

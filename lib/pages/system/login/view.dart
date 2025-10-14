@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -10,19 +11,32 @@ class LoginPage extends GetView<LoginController> {
   // 主视图
   Widget _buildView() {
     return Center(
-      child: Column(
-        children: [
-          // 显示
-          HelloWidget(),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.amber),
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // 显示
+            HelloWidget(),
 
-          // 触发
-          ElevatedButton(
-            onPressed: () {
-              controller.onTap(DateTime.now().millisecondsSinceEpoch);
-            },
-            child: const Text("点击"),
-          ),
-        ],
+            // 触发
+            ElevatedButton(
+              onPressed: () {
+                controller.onTap(DateTime.now().millisecondsSinceEpoch);
+              },
+              child: const Text("点击"),
+            ),
+
+            // 触发
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed(RouteNames.systemSplash);
+              },
+              child: const Text("点击"),
+            ),
+          ],
+        ),
       ),
     );
   }
