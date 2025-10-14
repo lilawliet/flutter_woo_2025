@@ -39,8 +39,9 @@ class MyApp extends StatelessWidget {
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
 
       // 路由
-      initialRoute: RouteNames.systemLogin,
+      initialRoute: RouteNames.systemSplash,
       getPages: RoutePages.list,
+      navigatorObservers: [RoutePages.observer],
 
       // 设备预览
       // locale: DevicePreview.locale(context),
