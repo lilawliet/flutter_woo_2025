@@ -12,10 +12,10 @@ class Global {
     // 初始化本地存储
     await Storage().init();
 
-    // 初始化队列
-    await Future.wait([
-      // 配置服务
-      Get.putAsync<ConfigService>(() async => await ConfigService().init()),
-    ]).whenComplete(() {});
+    // 初始化网络请求
+    Get.put<ConfigService>(ConfigService());
+    Get.put<WPHttpService>(WPHttpService());
+
+    await ConfigService.to.init();
   }
 }
