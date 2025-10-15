@@ -47,6 +47,8 @@ dependencies:
   shared_preferences: ^2.5.3
   # 网络请求
   dio: ^5.9.0
+  # 主题
+  adaptive_theme: ^3.7.2
 
 dev_dependencies:
   flutter_test:
@@ -56,8 +58,25 @@ dev_dependencies:
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  # rules and activating additional ones.  
   flutter_lints: ^5.0.0
+  # 图标生成
+  icons_launcher: ^3.0.3
+
+# app 图标
+icons_launcher:
+  image_path: "assets/icons/ic_logo.png"
+  platforms:
+    android:
+      enable: true
+      notification_image: "assets/icons/ic_foreground.png"
+      # adaptive_background_color: '#ffffff'
+      adaptive_background_image: "assets/icons/ic_background.png"
+      adaptive_foreground_image: "assets/icons/ic_foreground.png"
+    ios:
+      enable: true
+    macos:
+      enable: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
