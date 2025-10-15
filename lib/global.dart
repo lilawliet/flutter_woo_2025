@@ -8,6 +8,7 @@ class Global {
     // 插件初始化
     WidgetsFlutterBinding.ensureInitialized();
 
+    // 初始化服务
     // 初始化本地存储
     await Storage().init();
 
