@@ -1,0 +1,12 @@
+dartdoc:
+  # 或者使用 nodoc 来排除特定文件
+  nodoc: ["lib/pages/**"]
+  
+  # 设置输出目录
+  output: "doc/api"
+  
+  # 包含私有成员（可选）
+  includePrivate: false
+  
+  # 包含源代码（可选）
+  includeSource: true
