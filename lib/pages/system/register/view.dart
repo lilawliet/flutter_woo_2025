@@ -2,6 +2,7 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
+import 'package:validatorless/validatorless.dart';
 
 import 'index.dart';
 
@@ -30,7 +31,9 @@ class RegisterPage extends GetView<RegisterController> {
   // 表单页
   Widget _buildForm() {
     return Form(
-      key: controller.formKey, // 设置globalKey，用于后面获取FormState
+      // 设置globalKey，用于后面获取FormState
+      key: controller.formKey,
+      // 设置自动验证模式
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: <Widget>[
         // username
@@ -40,13 +43,17 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormName.tr,
           prefix: const Icon(Icons.person),
           // suffix: const Icon(Icons.done),
-          // validator: Validatorless.multiple([
-          //   Validatorless.required(LocaleKeys.validatorRequired.tr),
-          //   Validatorless.min(
-          //       3, LocaleKeys.validatorMin.trParams({"size": "3"})),
-          //   Validatorless.max(
-          //       20, LocaleKeys.validatorMax.trParams({"size": "20"})),
-          // ]),
+          validator: Validatorless.multiple([
+            Validatorless.required(LocaleKeys.validatorRequired.tr),
+            Validatorless.min(
+              3,
+              LocaleKeys.validatorMin.trParams({"size": "3"}),
+            ),
+            Validatorless.max(
+              20,
+              LocaleKeys.validatorMax.trParams({"size": "20"}),
+            ),
+          ]),
         ).paddingBottom(AppSpace.listRow.w),
 
         // email
@@ -56,10 +63,10 @@ class RegisterPage extends GetView<RegisterController> {
           keyboardType: TextInputType.emailAddress,
           prefix: const Icon(Icons.email),
           // suffix: const Icon(Icons.done),
-          // validator: Validatorless.multiple([
-          //   Validatorless.required(LocaleKeys.validatorRequired.tr),
-          //   Validatorless.email(LocaleKeys.validatorEmail.tr),
-          // ]),
+          validator: Validatorless.multiple([
+            Validatorless.required(LocaleKeys.validatorRequired.tr),
+            Validatorless.email(LocaleKeys.validatorEmail.tr),
+          ]),
         ).paddingBottom(AppSpace.listRow.w),
 
         // first name
@@ -68,13 +75,17 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormFirstName.tr,
           prefix: const Icon(Icons.person),
           // suffix: const Icon(Icons.done),
-          // validator: Validatorless.multiple([
-          //   Validatorless.required(LocaleKeys.validatorRequired.tr),
-          //   Validatorless.min(
-          //       3, LocaleKeys.validatorMin.trParams({"size": "3"})),
-          //   Validatorless.max(
-          //       20, LocaleKeys.validatorMax.trParams({"size": "20"})),
-          // ]),
+          validator: Validatorless.multiple([
+            Validatorless.required(LocaleKeys.validatorRequired.tr),
+            Validatorless.min(
+              3,
+              LocaleKeys.validatorMin.trParams({"size": "3"}),
+            ),
+            Validatorless.max(
+              20,
+              LocaleKeys.validatorMax.trParams({"size": "20"}),
+            ),
+          ]),
         ).paddingBottom(AppSpace.listRow.w),
 
         // last name
@@ -83,13 +94,17 @@ class RegisterPage extends GetView<RegisterController> {
           labelText: LocaleKeys.registerFormLastName.tr,
           prefix: const Icon(Icons.person),
           // suffix: const Icon(Icons.done),
-          // validator: Validatorless.multiple([
-          //   Validatorless.required(LocaleKeys.validatorRequired.tr),
-          //   Validatorless.min(
-          //       3, LocaleKeys.validatorMin.trParams({"size": "3"})),
-          //   Validatorless.max(
-          //       20, LocaleKeys.validatorMax.trParams({"size": "20"})),
-          // ]),
+          validator: Validatorless.multiple([
+            Validatorless.required(LocaleKeys.validatorRequired.tr),
+            Validatorless.min(
+              3,
+              LocaleKeys.validatorMin.trParams({"size": "3"}),
+            ),
+            Validatorless.max(
+              20,
+              LocaleKeys.validatorMax.trParams({"size": "20"}),
+            ),
+          ]),
         ).paddingBottom(AppSpace.listRow.w),
 
         // password
@@ -99,16 +114,14 @@ class RegisterPage extends GetView<RegisterController> {
           prefix: const Icon(Icons.password),
           obscureText: true,
           suffix: const Icon(Icons.done),
-          // validator: Validatorless.multiple([
-          //   Validatorless.required(LocaleKeys.validatorRequired.tr),
-          //   Validators.password(
-          //     8,
-          //     18,
-          //     LocaleKeys.validatorPassword.trParams(
-          //       {"min": "8", "max": "18"},
-          //     ),
-          //   ),
-          // ]),
+          validator: Validatorless.multiple([
+            Validatorless.required(LocaleKeys.validatorRequired.tr),
+            Validators.password(
+              8,
+              18,
+              LocaleKeys.validatorPassword.trParams({"min": "8", "max": "18"}),
+            ),
+          ]),
         ).paddingBottom(AppSpace.listRow.w * 2),
 
         // 注册按钮

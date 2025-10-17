@@ -47,4 +47,12 @@ Map<String, String> localeZh = {
   LocaleKeys.registerFormFirstName: '姓',
   LocaleKeys.registerFormLastName: '名',
   LocaleKeys.registerHaveAccount: '你有现成账号?',
+
+  // 验证提示
+  LocaleKeys.validatorRequired: 'The field is obligatory',
+  LocaleKeys.validatorEmail: 'The field must be an email',
+  LocaleKeys.validatorMin: 'Length cannot be less than @size',
+  LocaleKeys.validatorMax: 'Length cannot be greater than @size',
+  LocaleKeys.validatorPassword:
+      'password must have between @min and @max digits',
 };
