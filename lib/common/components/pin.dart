@@ -45,10 +45,11 @@ class PinPutWidget extends StatelessWidget {
       border: Border.all(color: context.colors.scheme.primary),
       borderRadius: BorderRadius.circular(5),
     );
+
     // 完成
     final submittedPinTheme = defaultPinTheme.copyWith(
       decoration: defaultPinTheme.decoration?.copyWith(
-        color: context.colors.scheme.surface,
+        color: context.colors.scheme.surfaceContainerLow,
       ),
     );
 
