@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           darkTheme: darkTheme,
 
           // 路由
-          initialRoute: RouteNames.stylesTextForm,
+          initialRoute: RouteNames.systemSplash,
           getPages: RoutePages.list,
           navigatorObservers: [RoutePages.observer],
 
