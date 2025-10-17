@@ -102,9 +102,9 @@ class RequestInterceptors extends Interceptor {
     // super.onRequest(options, handler);
 
     // // http header 头加入 Authorization
-    // if (UserService.to.hasToken) {
-    //   options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
-    // }
+    if (UserService.to.hasToken) {
+      options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
+    }
 
     return handler.next(options);
     // 如果你想完成请求并返回一些自定义数据，你可以resolve一个Response对象 `handler.resolve(response)`。
@@ -133,7 +133,7 @@ class RequestInterceptors extends Interceptor {
 
   // 退出并重新登录
   Future<void> _errorNoAuthLogout() async {
-    // await UserService.to.logout();
+    await UserService.to.logout();
     Get.toNamed(RouteNames.systemLogin);
   }
 

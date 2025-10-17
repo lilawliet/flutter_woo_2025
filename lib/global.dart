@@ -17,7 +17,10 @@ class Global {
 
     // 初始化网络请求
     Get.put<ConfigService>(ConfigService());
+    // 加载服务
     Get.put<WPHttpService>(WPHttpService());
+    // 用户
+    Get.put<UserService>(UserService());
 
     await ConfigService.to.init();
   }
