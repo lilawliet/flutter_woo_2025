@@ -36,3 +36,15 @@ dart pub global activate dhttpd
 dhttpd --path doc/api
 
 ```
+
+# 4.3 修改原生启动图
+```
+# 安装 flutter_native_splash 并在 pubspec.yaml 中配置
+
+# 执行命令生成
+dart run flutter_native_splash:create
+
+# 删除
+dart run flutter_native_splash:remove
+
+```
