@@ -16,7 +16,7 @@ class LoginController extends GetxController {
 
   /// 密码
   TextEditingController passwordController = TextEditingController(
-    text: "123456",
+    text: "12345678",
   );
 
   /// 表单 key
@@ -31,6 +31,7 @@ class LoginController extends GetxController {
         // aes 加密密码
         var password = EncryptUtil().aesEncode(passwordController.text);
 
+        print('password: $password');
         // api 请求
         UserTokenModel res = await UserApi.login(
           UserLoginReq(username: userNameController.text, password: password),
