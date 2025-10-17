@@ -8,9 +8,7 @@ class MyAddressPage extends GetView<MyAddressController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("MyAddressPage"),
-    );
+    return const Center(child: Text("MyAddressPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class MyAddressPage extends GetView<MyAddressController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("my_address")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

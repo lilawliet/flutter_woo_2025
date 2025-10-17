@@ -8,9 +8,7 @@ class ProfileEditPage extends GetView<ProfileEditController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ProfileEditPage"),
-    );
+    return const Center(child: Text("ProfileEditPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class ProfileEditPage extends GetView<ProfileEditController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("profile_edit")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

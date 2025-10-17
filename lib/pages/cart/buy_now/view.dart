@@ -8,9 +8,7 @@ class BuyNowPage extends GetView<BuyNowController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("BuyNowPage"),
-    );
+    return const Center(child: Text("BuyNowPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class BuyNowPage extends GetView<BuyNowController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("buy_now")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

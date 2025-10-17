@@ -8,9 +8,7 @@ class CartIndexPage extends GetView<CartIndexController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("CartIndexPage"),
-    );
+    return const Center(child: Text("CartIndexPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class CartIndexPage extends GetView<CartIndexController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("cart_index")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

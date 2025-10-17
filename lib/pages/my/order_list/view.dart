@@ -8,9 +8,7 @@ class OrderListPage extends GetView<OrderListController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("OrderListPage"),
-    );
+    return const Center(child: Text("OrderListPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class OrderListPage extends GetView<OrderListController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("order_list")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

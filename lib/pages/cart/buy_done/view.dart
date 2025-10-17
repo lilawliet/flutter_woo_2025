@@ -8,9 +8,7 @@ class BuyDonePage extends GetView<BuyDoneController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("BuyDonePage"),
-    );
+    return const Center(child: Text("BuyDonePage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class BuyDonePage extends GetView<BuyDoneController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("buy_done")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

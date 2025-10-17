@@ -8,9 +8,7 @@ class DialogPage extends GetView<DialogController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("DialogPage"),
-    );
+    return const Center(child: Text("DialogPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class DialogPage extends GetView<DialogController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("dialog")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

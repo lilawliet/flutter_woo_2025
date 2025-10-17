@@ -8,9 +8,7 @@ class MyIndexPage extends GetView<MyIndexController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("MyIndexPage"),
-    );
+    return const Center(child: Text("MyIndexPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class MyIndexPage extends GetView<MyIndexController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("my_index")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

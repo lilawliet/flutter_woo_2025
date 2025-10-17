@@ -8,9 +8,7 @@ class CategoryPage extends GetView<CategoryController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("CategoryPage"),
-    );
+    return const Center(child: Text("CategoryPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class CategoryPage extends GetView<CategoryController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("category")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

@@ -8,9 +8,7 @@ class ColorsPage extends GetView<ColorsController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ColorsPage"),
-    );
+    return const Center(child: Text("ColorsPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class ColorsPage extends GetView<ColorsController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("colors")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

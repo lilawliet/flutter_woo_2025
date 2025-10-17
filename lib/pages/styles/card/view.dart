@@ -8,9 +8,7 @@ class CardPage extends GetView<CardController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("CardPage"),
-    );
+    return const Center(child: Text("CardPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class CardPage extends GetView<CardController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("card")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

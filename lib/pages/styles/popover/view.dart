@@ -8,9 +8,7 @@ class PopoverPage extends GetView<PopoverController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("PopoverPage"),
-    );
+    return const Center(child: Text("PopoverPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class PopoverPage extends GetView<PopoverController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("popover")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

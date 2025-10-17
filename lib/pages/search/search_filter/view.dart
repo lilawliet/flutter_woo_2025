@@ -8,9 +8,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("SearchFilterPage"),
-    );
+    return const Center(child: Text("SearchFilterPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("search_filter")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

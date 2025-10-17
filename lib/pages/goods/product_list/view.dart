@@ -8,9 +8,7 @@ class ProductListPage extends GetView<ProductListController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ProductListPage"),
-    );
+    return const Center(child: Text("ProductListPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class ProductListPage extends GetView<ProductListController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("product_list")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

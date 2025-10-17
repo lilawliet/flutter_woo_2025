@@ -8,9 +8,7 @@ class UserAgreementPage extends GetView<UserAgreementController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("UserAgreementPage"),
-    );
+    return const Center(child: Text("UserAgreementPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class UserAgreementPage extends GetView<UserAgreementController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("user_agreement")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

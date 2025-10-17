@@ -8,9 +8,7 @@ class AppbarPage extends GetView<AppbarController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("AppbarPage"),
-    );
+    return const Center(child: Text("AppbarPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class AppbarPage extends GetView<AppbarController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("appbar")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

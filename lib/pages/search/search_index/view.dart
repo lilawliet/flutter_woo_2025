@@ -8,9 +8,7 @@ class SearchIndexPage extends GetView<SearchIndexController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("SearchIndexPage"),
-    );
+    return const Center(child: Text("SearchIndexPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class SearchIndexPage extends GetView<SearchIndexController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("search_index")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

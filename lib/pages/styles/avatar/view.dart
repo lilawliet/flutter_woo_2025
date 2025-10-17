@@ -8,9 +8,7 @@ class AvatarPage extends GetView<AvatarController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("AvatarPage"),
-    );
+    return const Center(child: Text("AvatarPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class AvatarPage extends GetView<AvatarController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("avatar")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

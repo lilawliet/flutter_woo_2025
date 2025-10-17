@@ -24,10 +24,13 @@ class RegisterPinController extends GetxController {
   // pin 触发提交
   void onPinSubmit(String val) {
     debugPrint("onPinSubmit: $val");
+    _register();
   }
 
   // 按钮提交
-  void onBtnSubmit() {}
+  void onBtnSubmit() {
+    _register();
+  }
 
   // 按钮返回
   void onBtnBackup() {
@@ -55,5 +58,39 @@ class RegisterPinController extends GetxController {
   void onClose() {
     super.onClose();
     pinController.dispose();
+  }
+
+  // 注册界面传值
+  UserRegisterReq? req = Get.arguments;
+
+  // 注册
+  Future<void> _register() async {
+    try {
+      Loading.show();
+
+      // 检查 Pin
+      if (pinController.text.isEmpty || pinController.text != pinCheckValue) {
+        return Loading.error(
+          LocaleKeys.commonMessageIncorrect.trParams({"method": "Pin"}),
+        );
+      }
+
+      // // 注册提交
+      // bool isOk = await UserApi.register(req);
+      // if (isOk) {
+      //   Loading.success(
+      //       LocaleKeys.commonMessageSuccess.trParams({"method": "Register"}));
+      //   Get.back(result: true);
+      // }
+
+      // 提示成功
+      Loading.success(
+        LocaleKeys.commonMessageSuccess.trParams({"method": "Register"}),
+      );
+
+      Get.back(result: true);
+    } finally {
+      Loading.dismiss();
+    }
   }
 }

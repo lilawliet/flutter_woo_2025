@@ -8,9 +8,7 @@ class ApplyPromoCodePage extends GetView<ApplyPromoCodeController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("ApplyPromoCodePage"),
-    );
+    return const Center(child: Text("ApplyPromoCodePage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class ApplyPromoCodePage extends GetView<ApplyPromoCodeController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("apply_promo_code")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

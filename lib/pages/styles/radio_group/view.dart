@@ -8,9 +8,7 @@ class RadioGroupPage extends GetView<RadioGroupController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("RadioGroupPage"),
-    );
+    return const Center(child: Text("RadioGroupPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class RadioGroupPage extends GetView<RadioGroupController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("radio_group")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

@@ -8,9 +8,7 @@ class BottomSheetPage extends GetView<BottomSheetController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("BottomSheetPage"),
-    );
+    return const Center(child: Text("BottomSheetPage"));
   }
 
   @override
@@ -21,9 +19,7 @@ class BottomSheetPage extends GetView<BottomSheetController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("bottom_sheet")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );
