@@ -1,8 +1,8 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import 'common/index.dart';
@@ -57,12 +57,15 @@ class MyApp extends StatelessWidget {
           // locale: DevicePreview.locale(context),
           // builder: DevicePreview.appBuilder,
           builder: (context, widget) {
+            // EasyLoading 初始化
+            widget = EasyLoading.init()(context, widget);
+
             // 不随系统字体缩放比例
             return MediaQuery(
               data: MediaQuery.of(
                 context,
               ).copyWith(textScaler: const TextScaler.linear(1.0)),
-              child: widget!,
+              child: widget,
             );
           },
 

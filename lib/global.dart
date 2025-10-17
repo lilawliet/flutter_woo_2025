@@ -12,6 +12,9 @@ class Global {
     // 初始化本地存储
     await Storage().init();
 
+    // 初始化提示框
+    Loading();
+
     // 初始化网络请求
     Get.put<ConfigService>(ConfigService());
     Get.put<WPHttpService>(WPHttpService());
