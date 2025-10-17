@@ -22,6 +22,14 @@ class ConfigService extends GetxService {
   // 主题
   AdaptiveThemeMode themeMode = AdaptiveThemeMode.light;
 
+  // 是否已经打开
+  bool get isAlreadyOpen => Storage().getBool(Constants.storageAlreadyOpen);
+
+  // 设置是否已经打开
+  void setIsAlreadyOpen(bool value) {
+    Storage().setBool(Constants.storageAlreadyOpen, value);
+  }
+
   // 初始化
   Future<ConfigService> init() async {
     await getPlatform();
