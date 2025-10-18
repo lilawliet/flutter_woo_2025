@@ -41,8 +41,31 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
   String? get tag => uniqueTag;
 
   // 滚动图
-  Widget _buildBanner() {
-    return const Text("滚动图");
+  Widget _buildBanner(BuildContext context) {
+    return GetBuilder<ProductDetailsController>(
+      id: "product_banner",
+      tag: tag,
+      builder: (_) {
+        return CarouselWidget(
+          // 打开大图预览
+          // onTap: controller.onGalleryTap,
+          // 图片列表
+          items: controller.bannerItems,
+          // 当前索引
+          currentIndex: controller.bannerCurrentIndex,
+          // 切换回调
+          onPageChanged: controller.onChangeBanner,
+          // 高度
+          height: 190.w,
+          // 指示器圆点
+          indicatorCircle: false,
+          // 指示器位置
+          indicatorAlignment: MainAxisAlignment.start,
+          // 指示器颜色
+          indicatorColor: context.colors.scheme.secondary,
+        );
+      },
+    ).backgroundColor(context.colors.scheme.surface);
   }
 
   // 商品标题
@@ -61,20 +84,22 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
   }
 
   // 主视图
-  Widget _buildView() {
-    return <Widget>[
-      // 滚动图
-      _buildBanner(),
+  Widget _buildView(BuildContext context) {
+    return controller.product == null
+        ? const PlaceholdWidget() // 占位图
+        : <Widget>[
+            // 滚动图
+            _buildBanner(context),
 
-      // 商品标题
-      _buildTitle(),
+            // 商品标题
+            _buildTitle(),
 
-      // Tab 栏位
-      _buildTabBar(),
+            // Tab 栏位
+            _buildTabBar(),
 
-      // TabView 视图
-      _buildTabView(),
-    ].toColumn();
+            // TabView 视图
+            _buildTabView(),
+          ].toColumn();
   }
 
   @override
@@ -86,10 +111,13 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
       tag: tag,
       builder: (_) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           // 导航
-          appBar: mainAppBarWidget(titleString: LocaleKeys.gDetailTitle.tr),
+          appBar: mainAppBarWidget(
+            titleString: controller.product?.name ?? LocaleKeys.gDetailTitle.tr,
+          ),
           // 内容
-          body: SafeArea(child: _buildView()),
+          body: SafeArea(child: _buildView(context)),
         );
       },
     );

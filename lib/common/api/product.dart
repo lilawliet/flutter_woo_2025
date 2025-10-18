@@ -25,4 +25,10 @@ class ProductApi {
     }
     return products;
   }
+
+  /// 商品详情
+  static Future<ProductModel> productDetail(int? id) async {
+    var res = await WPHttpService.to.get('/products/$id');
+    return ProductModel.fromJson(res.data);
+  }
 }
