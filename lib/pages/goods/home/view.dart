@@ -151,36 +151,43 @@ class HomePage extends GetView<HomeController> {
 
   // 主视图
   Widget _buildView() {
-    return CustomScrollView(
-      slivers: [
-        // 轮播广告
-        _buildBanner(),
+    return controller.flashShellProductList.isEmpty ||
+            controller.newProductProductList.isEmpty
+        ?
+          // 占位图
+          const PlaceholdWidget()
+        : CustomScrollView(
+            slivers: [
+              // 轮播广告
+              _buildBanner(),
 
-        // 分类导航
-        _buildCategories(),
+              // 分类导航
+              _buildCategories(),
 
-        // Flash Sell
-        // title
-        Text(
-          LocaleKeys.gHomeFlashSell.tr,
-        ).sliverToBoxAdapter().sliverPaddingHorizontal(AppSpace.page),
+              // Flash Sell
+              // title
+              Text(
+                LocaleKeys.gHomeFlashSell.tr,
+              ).sliverToBoxAdapter().sliverPaddingHorizontal(AppSpace.page),
 
-        // list
-        _buildFlashSell(),
+              // list
+              _buildFlashSell(),
 
-        // new product
-        // title
-        controller.newProductProductList.isNotEmpty
-            ? BuildListTitle(
-                title: LocaleKeys.gHomeNewProduct.tr,
-                onTap: () => controller.onAllTap(false),
-              ).sliverToBoxAdapter().sliverPaddingHorizontal(AppSpace.page)
-            : const SliverToBoxAdapter(),
+              // new product
+              // title
+              controller.newProductProductList.isNotEmpty
+                  ? BuildListTitle(
+                      title: LocaleKeys.gHomeNewProduct.tr,
+                      onTap: () => controller.onAllTap(false),
+                    ).sliverToBoxAdapter().sliverPaddingHorizontal(
+                      AppSpace.page,
+                    )
+                  : const SliverToBoxAdapter(),
 
-        // list
-        _buildNewSell(),
-      ],
-    );
+              // list
+              _buildNewSell(),
+            ],
+          );
   }
 
   @override
