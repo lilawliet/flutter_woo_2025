@@ -1,5 +1,7 @@
 import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import '../index.dart';
 
@@ -16,7 +18,12 @@ AppBar mainAppBarWidget({
   return AppBar(
     // 高度
     toolbarHeight: 40,
-
+    // 背景透明
+    backgroundColor: Colors.transparent,
+    // 系统状态栏样式
+    systemOverlayStyle: Get.context?.platformBrightness() == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark,
     // 最左侧按钮
     leading: leading,
     // 按钮和标题组件间距
