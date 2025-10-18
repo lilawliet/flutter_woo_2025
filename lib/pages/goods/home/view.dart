@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 import 'index.dart';
-import 'widgets/list_title.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
