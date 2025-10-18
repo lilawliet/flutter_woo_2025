@@ -103,7 +103,8 @@ class AppTheme {
       fontFamily: 'Montserrat',
       // 导航栏
       appBarTheme: AppBarTheme(
-        backgroundColor: scheme.surface, // 背景色
+        // backgroundColor: scheme.surface, // 背景色
+        backgroundColor: Colors.transparent, // 背景色
         scrolledUnderElevation: 0, // 滚动阴影
         elevation: 0, // 阴影
         centerTitle: true, // 标题居中

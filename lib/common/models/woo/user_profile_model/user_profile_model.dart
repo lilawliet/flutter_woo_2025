@@ -70,21 +70,21 @@ class UserProfileModel {
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'date_created': dateCreated,
-        'date_created_gmt': dateCreatedGmt,
-        'date_modified': dateModified,
-        'date_modified_gmt': dateModifiedGmt,
-        'email': email,
-        'first_name': firstName,
-        'last_name': lastName,
-        'role': role,
-        'username': username,
-        'billing': billing?.toJson(),
-        'shipping': shipping?.toJson(),
-        'is_paying_customer': isPayingCustomer,
-        'avatar_url': avatarUrl,
-        'meta_data': metaData?.map((e) => e.toJson()).toList(),
-        '_links': links?.toJson(),
-      };
+    'id': id,
+    'date_created': dateCreated,
+    'date_created_gmt': dateCreatedGmt,
+    'date_modified': dateModified,
+    'date_modified_gmt': dateModifiedGmt,
+    'email': email,
+    'first_name': firstName,
+    'last_name': lastName,
+    'role': role,
+    'username': username,
+    'billing': billing?.toJson(),
+    'shipping': shipping?.toJson(),
+    'is_paying_customer': isPayingCustomer,
+    'avatar_url': avatarUrl,
+    'meta_data': metaData?.map((e) => e.toJson()).toList(),
+    '_links': links?.toJson(),
+  };
 }
