@@ -102,11 +102,23 @@ class HomePage extends GetView<HomeController> {
         .sliverPaddingHorizontal(AppSpace.page);
   }
 
-  // Flash Sell
+  // 推荐商品
   Widget _buildFlashSell() {
-    return Container().sliverToBoxAdapter().sliverPaddingHorizontal(
-      AppSpace.page,
-    );
+    return <Widget>[
+          for (var i = 0; i < controller.flashShellProductList.length; i++)
+            ProductItemWidget(
+                  controller.flashShellProductList[i],
+                  imgHeight: 117.w,
+                  imgWidth: 120.w,
+                )
+                .constrained(width: 120.w, height: 170.w)
+                .paddingRight(AppSpace.listItem),
+        ]
+        .toListView(scrollDirection: Axis.horizontal)
+        .height(170.w)
+        .paddingBottom(AppSpace.listRow)
+        .sliverToBoxAdapter()
+        .sliverPaddingHorizontal(AppSpace.page);
   }
 
   // New Sell

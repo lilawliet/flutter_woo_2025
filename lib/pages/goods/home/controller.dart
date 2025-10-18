@@ -62,4 +62,7 @@ class HomeController extends GetxController {
   // void onClose() {
   //   super.onClose();
   // }
+
+  // ALL 点击事件
+  void onAllTap(bool featured) {}
 }
