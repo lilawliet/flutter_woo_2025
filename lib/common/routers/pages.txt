@@ -136,12 +136,20 @@
         page: () => const TextPage(),
       ),
       GetPage(
+        name: RouteNames.stylesTextForm,
+        page: () => const TextFormPage(),
+      ),
+      GetPage(
         name: RouteNames.systemLogin,
         page: () => const LoginPage(),
       ),
       GetPage(
         name: RouteNames.systemMain,
         page: () => const MainPage(),
+      ),
+      GetPage(
+        name: RouteNames.systemMsg,
+        page: () => const MsgPage(),
       ),
       GetPage(
         name: RouteNames.systemRegister,

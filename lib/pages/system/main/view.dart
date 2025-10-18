@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_woo_2025/common/index.dart';
+import 'package:flutter_woo_2025/pages/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -86,10 +87,10 @@ class _MainViewGetX extends GetView<MainController> {
           onPageChanged: controller.onIndexChanged,
           children: const [
             // 加入空页面占位
-            Text("1"),
-            Text("2"),
-            Text("3"),
-            Text("4"),
+            HomePage(),
+            CartIndexPage(),
+            MsgPage(),
+            MyIndexPage(),
           ],
         ),
       ),

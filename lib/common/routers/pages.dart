@@ -86,12 +86,14 @@ class RoutePages {
       page: () => const StylesIndexPage(),
     ),
     GetPage(name: RouteNames.stylesText, page: () => const TextPage()),
+    GetPage(name: RouteNames.stylesTextForm, page: () => const TextFormPage()),
+    GetPage(name: RouteNames.systemLogin, page: () => const LoginPage()),
     GetPage(
-      name: RouteNames.systemLogin,
-      page: () => const LoginPage(),
-      binding: LoginBinding(),
+      name: RouteNames.systemMain,
+      page: () => const MainPage(),
+      binding: MainBinding(),
     ),
-    GetPage(name: RouteNames.systemMain, page: () => const MainPage()),
+    GetPage(name: RouteNames.systemMsg, page: () => const MsgPage()),
     GetPage(name: RouteNames.systemRegister, page: () => const RegisterPage()),
     GetPage(
       name: RouteNames.systemRegisterPin,
@@ -103,6 +105,5 @@ class RoutePages {
       page: () => const UserAgreementPage(),
     ),
     GetPage(name: RouteNames.systemWelcome, page: () => const WelcomePage()),
-    GetPage(name: RouteNames.stylesTextForm, page: () => const TextFormPage()),
   ];
 }
