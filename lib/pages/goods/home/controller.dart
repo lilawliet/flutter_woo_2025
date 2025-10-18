@@ -160,7 +160,9 @@ class HomeController extends GetxController {
   }
 
   // ALL 点击事件
-  void onAllTap(bool featured) {}
+  void onAllTap(bool featured) {
+    Get.toNamed(RouteNames.goodsProductList, arguments: {"featured": featured});
+  }
 
   // 读取缓存
   Future<void> _loadCacheData() async {
