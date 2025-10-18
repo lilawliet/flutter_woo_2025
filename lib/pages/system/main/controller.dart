@@ -24,7 +24,7 @@ class MainController extends GetxController {
     _initData();
 
     // 跳转注册页
-    Get.toNamed(RouteNames.systemRegister);
+    // Get.toNamed(RouteNames.systemRegister);
   }
 
   // @override
