@@ -24,4 +24,7 @@ class HomeController extends GetxController {
   // void onClose() {
   //   super.onClose();
   // }
+
+  // 导航点击事件
+  void onAppBarTap() {}
 }
