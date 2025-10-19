@@ -46,6 +46,9 @@ class HomeController extends GetxController {
     // 颜色
     var attributeColors = await ProductApi.attributes(1);
 
+    // 尺寸
+    var attributeSizes = await ProductApi.attributes(2);
+
     // 模拟网络延迟 1 秒
     await Future.delayed(const Duration(seconds: 1));
 
@@ -57,6 +60,9 @@ class HomeController extends GetxController {
 
     // 保存离线数据 - 基础数据
     Storage().setJson(Constants.storageProductsCategories, categoryItems);
+
+    // 尺寸定义
+    Storage().setJson(Constants.storageProductsAttributesSizes, attributeSizes);
 
     // 保存离线数据
     // 基础
