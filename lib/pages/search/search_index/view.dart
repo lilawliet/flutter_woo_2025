@@ -8,6 +8,32 @@ import 'index.dart';
 class SearchIndexPage extends GetView<SearchIndexController> {
   const SearchIndexPage({super.key});
 
+  // 列表项
+  Widget _buildListItem(BuildContext context, TagsModel item) {
+    return ListTile(
+      title: TextWidget.label(item.name ?? ""),
+      trailing: IconWidget.icon(
+        Icons.north_west,
+        color: context.colors.scheme.primary,
+      ),
+      onTap: () => controller.onListItemTap(item),
+    );
+  }
+
+  // 列表
+  Widget _buildList(BuildContext context) {
+    return ListView.separated(
+      itemBuilder: (BuildContext context, int index) {
+        TagsModel item = controller.tagsList[index];
+        return _buildListItem(context, item);
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return const Divider();
+      },
+      itemCount: controller.tagsList.length,
+    );
+  }
+
   // 导航栏
   AppBar _buildAppBar() {
     return AppBar(
@@ -25,8 +51,8 @@ class SearchIndexPage extends GetView<SearchIndexController> {
   }
 
   // 主视图
-  Widget _buildView() {
-    return const Center(child: Text("SearchIndexPage"));
+  Widget _buildView(BuildContext context) {
+    return _buildList(context);
   }
 
   @override
@@ -40,7 +66,7 @@ class SearchIndexPage extends GetView<SearchIndexController> {
           appBar: _buildAppBar(),
 
           // 内容
-          body: SafeArea(child: _buildView()),
+          body: SafeArea(child: _buildView(context)),
         );
       },
     );
