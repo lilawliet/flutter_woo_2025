@@ -45,6 +45,8 @@ class ProductsReq {
   /// 排序字段
   final String? orderby;
 
+  final int? product;
+
   ProductsReq({
     this.page,
     this.prePage,
@@ -61,6 +63,7 @@ class ProductsReq {
     this.maxPrice,
     this.order,
     this.orderby,
+    this.product,
   });
 
   Map<String, dynamic> toJson() => {
@@ -79,6 +82,7 @@ class ProductsReq {
     'max_price': maxPrice ?? "",
     'orderby': orderby ?? "date",
     'order': order ?? "desc",
+    'product': product ?? 0,
   };
 }
 
