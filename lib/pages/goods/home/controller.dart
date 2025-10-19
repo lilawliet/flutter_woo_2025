@@ -43,6 +43,9 @@ class HomeController extends GetxController {
     // 新商品
     newProductProductList = await ProductApi.products(ProductsReq());
 
+    // 颜色
+    var attributeColors = await ProductApi.attributes(1);
+
     // 模拟网络延迟 1 秒
     await Future.delayed(const Duration(seconds: 1));
 
@@ -54,6 +57,13 @@ class HomeController extends GetxController {
 
     // 保存离线数据 - 基础数据
     Storage().setJson(Constants.storageProductsCategories, categoryItems);
+
+    // 保存离线数据
+    // 基础
+    Storage().setJson(
+      Constants.storageProductsAttributesColors,
+      attributeColors,
+    );
 
     update(["home"]);
   }

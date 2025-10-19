@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
@@ -6,7 +8,8 @@ class ProductDetailsController extends GetxController
     with GetSingleTickerProviderStateMixin {
   ProductDetailsController();
 
-  //////// tab 相关 ////////
+  ///////////////////////
+  //////// tab 相关 //////
   // tab 控制器
   late TabController tabController;
 
@@ -18,6 +21,33 @@ class ProductDetailsController extends GetxController
     tabIndex = index;
     tabController.animateTo(index);
     update(["product_tab"]);
+  }
+
+  ///////////////////////
+  ////// 颜色相关 ////////
+  // 颜色列表
+  List<KeyValueModel<AttributeModel>> colors = [];
+  // 选中颜色列表
+  List<String> colorKeys = [];
+  // 读取缓存
+  _loadCache() async {
+    // 颜色列表
+    var stringColors = Storage().getString(
+      Constants.storageProductsAttributesColors,
+    );
+
+    colors = stringColors != ""
+        ? jsonDecode(stringColors).map<KeyValueModel<AttributeModel>>((item) {
+            var arrt = AttributeModel.fromJson(item);
+            return KeyValueModel(key: "${arrt.name}", value: arrt);
+          }).toList()
+        : [];
+  }
+
+  // 颜色选中
+  void onColorTap(List<String> keys) {
+    colorKeys = keys;
+    update(["product_colors"]);
   }
 
   ///////////////////////
@@ -54,6 +84,9 @@ class ProductDetailsController extends GetxController
 
     // 初始化 tab 控制器
     tabController = TabController(length: 3, vsync: this);
+
+    // 读取缓存
+    await _loadCache();
 
     update(["product_details"]);
   }

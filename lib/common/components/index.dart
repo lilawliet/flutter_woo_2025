@@ -12,3 +12,4 @@ export 'product_item.dart';
 export 'refresher.dart';
 export 'placehold.dart';
 export 'gallery.dart';
+export 'colors_list.dart';
