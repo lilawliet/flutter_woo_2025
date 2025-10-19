@@ -1,8 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
-class ProductDetailsController extends GetxController {
+class ProductDetailsController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   ProductDetailsController();
+
+  //////// tab 相关 ////////
+  // tab 控制器
+  late TabController tabController;
+
+  // tab 索引
+  int tabIndex = 0;
+
+  // 切换 tab
+  void onTapBarTap(int index) {
+    tabIndex = index;
+    tabController.animateTo(index);
+    update(["product_tab"]);
+  }
+
+  ///////////////////////
 
   // 商品 id , 获取路由传递参数
   int? productId = Get.arguments['id'] ?? 0;
@@ -34,6 +52,9 @@ class ProductDetailsController extends GetxController {
   _initData() async {
     await _loadProduct();
 
+    // 初始化 tab 控制器
+    tabController = TabController(length: 3, vsync: this);
+
     update(["product_details"]);
   }
 
@@ -56,10 +77,12 @@ class ProductDetailsController extends GetxController {
     _initData();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  @override
+  void onClose() {
+    super.onClose();
+
+    tabController.dispose();
+  }
 
   // 图片浏览
   void onGalleryTap(int index, KeyValueModel item) {

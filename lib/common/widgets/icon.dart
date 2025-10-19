@@ -2,10 +2,9 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import '../index.dart';
 
-// 图标类型
 enum IconWidgetType { icon, svg, img }
 
-// 图标组件
+/// 图标组件
 class IconWidget extends StatelessWidget {
   const IconWidget({
     super.key,
@@ -158,7 +157,7 @@ class IconWidget extends StatelessWidget {
     if (isDot == true) {
       icon = Badge(
         backgroundColor: context.colors.scheme.primary,
-        // smallSize: 10,
+        smallSize: 8,
         alignment: Alignment.bottomRight,
         child: icon,
       );
