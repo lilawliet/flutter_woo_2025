@@ -2,6 +2,7 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 import 'index.dart';
 
@@ -214,7 +215,13 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
           // 内容
           body: SafeArea(
             child: <Widget>[
-              _buildView(context).expanded(),
+              // 主视图
+              SmartRefresher(
+                controller: controller.mainRefreshController, // 刷新控制器
+                onRefresh: controller.onMainRefresh, // 下拉刷新回调
+                child: _buildView(context),
+              ).expanded(),
+              // 底部按钮
               _buildButtons(context),
             ].toColumn(),
           ),

@@ -44,6 +44,8 @@ class TabReviewsView extends GetView<ProductDetailsController> {
         // 5 星
         // 名称、时间
         <Widget>[
+          // 星
+          StarsListWidget(value: item.rating ?? 0, size: 12),
           // 名称
           TextWidget.body(
             item.reviewer ?? "",
