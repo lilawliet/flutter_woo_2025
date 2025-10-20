@@ -1,4 +1,5 @@
-library cart_index;
+library;
 
 export './controller.dart';
 export './view.dart';
+export './widgets/cart_item.dart';

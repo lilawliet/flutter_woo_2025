@@ -4,8 +4,6 @@ import 'package:flutter_woo_2025/common/index.dart';
 import 'package:flutter_woo_2025/pages/index.dart';
 import 'package:get/get.dart';
 
-import 'index.dart';
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
