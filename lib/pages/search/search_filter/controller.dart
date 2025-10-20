@@ -45,31 +45,6 @@ class SearchFilterController extends GetxController {
   // 选中尺寸列表
   List<String> sizeKeys = [];
 
-  // 读取缓存
-  void _loadCache() async {
-    // 尺寸列表
-    {
-      String result = Storage().getString(
-        Constants.storageProductsAttributesSizes,
-      );
-      sizes = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
-        var arrt = AttributeModel.fromJson(item);
-        return KeyValueModel(key: "${arrt.name}", value: arrt);
-      }).toList();
-    }
-
-    // 颜色列表
-    {
-      String result = Storage().getString(
-        Constants.storageProductsAttributesColors,
-      );
-      colors = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
-        var arrt = AttributeModel.fromJson(item);
-        return KeyValueModel(key: "${arrt.name}", value: arrt);
-      }).toList();
-    }
-  }
-
   // 尺寸选中
   void onSizeTap(List<String> keys) {
     sizeKeys = keys;
@@ -102,6 +77,96 @@ class SearchFilterController extends GetxController {
     update(["filter_star"]);
   }
   /////////////////////////////////
+
+  // Brand
+  List<KeyValueModel<AttributeModel>> brands = [];
+  List<String> brandKeys = [];
+
+  // Gender
+  List<KeyValueModel<AttributeModel>> genders = [];
+  List<String> genderKeys = [];
+
+  // Condition
+  List<KeyValueModel<AttributeModel>> conditions = [];
+  List<String> conditionKeys = [];
+
+  // 品牌选中
+  void onBrandTap(List<String> keys) {
+    brandKeys = keys;
+    update(["filter_brands"]);
+  }
+
+  // 性别选中
+  void onGenderTap(List<String> keys) {
+    genderKeys = keys;
+    update(["filter_genders"]);
+  }
+
+  // 新旧选中
+  void onConditionTap(List<String> keys) {
+    conditionKeys = keys;
+    update(["filter_conditions"]);
+  }
+
+  // 读取缓存
+  void _loadCache() async {
+    // 尺寸列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesSizes,
+      );
+      sizes = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+
+    // 颜色列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesColors,
+      );
+      colors = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+
+    // 品牌列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesBrand,
+      );
+      brands = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+
+    // 性别列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesGender,
+      );
+      genders = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+
+    // 新旧列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesCondition,
+      );
+      conditions = jsonDecode(result).map<KeyValueModel<AttributeModel>>((
+        item,
+      ) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+  }
 
   // 排序列表
   List<KeyValueModel> orderList = [

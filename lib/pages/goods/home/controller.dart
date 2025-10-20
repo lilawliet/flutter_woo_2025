@@ -51,6 +51,13 @@ class HomeController extends GetxController {
     // 尺寸
     var attributeSizes = await ProductApi.attributes(2);
 
+    // 品牌
+    var attributeBrand = await ProductApi.attributes(3);
+    // 性别
+    var attributeGender = await ProductApi.attributes(4);
+    // 新旧
+    var attributeCondition = await ProductApi.attributes(5);
+
     // 模拟网络延迟 1 秒
     await Future.delayed(const Duration(seconds: 1));
 
@@ -65,6 +72,22 @@ class HomeController extends GetxController {
 
     // 尺寸定义
     Storage().setJson(Constants.storageProductsAttributesSizes, attributeSizes);
+
+    // 品牌定义
+    Storage().setString(
+      Constants.storageProductsAttributesBrand,
+      jsonEncode(attributeBrand),
+    );
+    // 性别定义
+    Storage().setString(
+      Constants.storageProductsAttributesGender,
+      jsonEncode(attributeGender),
+    );
+    // 新旧定义
+    Storage().setString(
+      Constants.storageProductsAttributesCondition,
+      jsonEncode(attributeCondition),
+    );
 
     // 保存离线数据
     // 基础
