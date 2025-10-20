@@ -91,6 +91,17 @@ class SearchFilterController extends GetxController {
   }
 
   /////////////////////////////////
+  /////////// 星级筛选 /////////////
+
+  // 星级
+  int starValue = -1;
+
+  // 星级选中
+  void onStarTap(int value) {
+    starValue = value;
+    update(["filter_star"]);
+  }
+  /////////////////////////////////
 
   // 排序列表
   List<KeyValueModel> orderList = [
