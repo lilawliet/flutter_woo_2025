@@ -78,8 +78,11 @@ class FilterView extends GetView<SearchFilterController> {
 
           // 价格
           _buildTitle(LocaleKeys.searchFilterPrice.tr),
-          _buildSizes(context),
           _buildPriceRange(),
+
+          // 尺寸
+          _buildTitle(LocaleKeys.searchFilterSize.tr),
+          _buildSizes(context),
         ]
         .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
         .paddingHorizontal(AppSpace.page);
