@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
@@ -34,6 +36,35 @@ class SearchFilterController extends GetxController {
     priceRange[1] = upperValue as double;
     update(["filter_price_range"]);
   }
+
+  /////////////////////////////////
+  /////////// 尺寸列表 /////////////
+  // 尺寸列表
+  List<KeyValueModel<AttributeModel>> sizes = [];
+
+  // 选中尺寸列表
+  List<String> sizeKeys = [];
+
+  // 读取缓存
+  void _loadCache() async {
+    // 尺寸列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesSizes,
+      );
+      sizes = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
+  }
+
+  // 尺寸选中
+  void onSizeTap(List<String> keys) {
+    sizeKeys = keys;
+    update(["filter_sizes"]);
+  }
+
   /////////////////////////////////
 
   // 排序列表
@@ -65,10 +96,11 @@ class SearchFilterController extends GetxController {
 
   void onTap() {}
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    super.onInit();
+    _loadCache();
+  }
 
   @override
   void onReady() {

@@ -51,6 +51,26 @@ class FilterView extends GetView<SearchFilterController> {
     );
   }
 
+  // 尺寸选择
+  Widget _buildSizes(BuildContext context) {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_sizes",
+      builder: (_) {
+        return TagsListWidget(
+          onTap: controller.onSizeTap,
+          itemList: controller.sizes,
+          keys: controller.sizeKeys,
+          bgSelectedColor: context.colors.scheme.secondary,
+          textSelectedColor: context.colors.scheme.onPrimary,
+          isCircular: true,
+          size: 24,
+          textSize: 9,
+          textWeight: FontWeight.w400,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
   Widget _buildView(BuildContext context) {
     return <Widget>[
           // 顶部
@@ -58,6 +78,7 @@ class FilterView extends GetView<SearchFilterController> {
 
           // 价格
           _buildTitle(LocaleKeys.searchFilterPrice.tr),
+          _buildSizes(context),
           _buildPriceRange(),
         ]
         .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
