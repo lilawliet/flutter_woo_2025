@@ -72,8 +72,8 @@ class SearchFilterPage extends GetView<SearchFilterController> {
               const PlaceholdWidget().sliverBox
             :
               // 数据列表
-              SliverGrid.extent(
-                maxCrossAxisExtent: 120,
+              SliverGrid.count(
+                crossAxisCount: 3, // 每行显示3个商品
                 mainAxisSpacing: AppSpace.listRow, // 主轴间距
                 crossAxisSpacing: AppSpace.listItem, // 交叉轴间距
                 childAspectRatio: 0.7, // 宽高比

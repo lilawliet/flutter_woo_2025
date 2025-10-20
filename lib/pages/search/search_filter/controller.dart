@@ -25,7 +25,7 @@ class SearchFilterController extends GetxController {
   /////////////////////////////////
   /////////// 价格区间 /////////////
   // 价格范围 0~1000
-  final List<double> priceRange = [100, 1000];
+  final List<double> priceRange = [0, 1000];
 
   // 价格区间拖动
   onPriceRangeDragging(
