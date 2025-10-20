@@ -57,12 +57,37 @@ class SearchFilterController extends GetxController {
         return KeyValueModel(key: "${arrt.name}", value: arrt);
       }).toList();
     }
+
+    // 颜色列表
+    {
+      String result = Storage().getString(
+        Constants.storageProductsAttributesColors,
+      );
+      colors = jsonDecode(result).map<KeyValueModel<AttributeModel>>((item) {
+        var arrt = AttributeModel.fromJson(item);
+        return KeyValueModel(key: "${arrt.name}", value: arrt);
+      }).toList();
+    }
   }
 
   // 尺寸选中
   void onSizeTap(List<String> keys) {
     sizeKeys = keys;
     update(["filter_sizes"]);
+  }
+
+  /////////////////////////////////
+  /////////// 颜色过滤 /////////////
+  ///  // 颜色列表
+  List<KeyValueModel<AttributeModel>> colors = [];
+
+  // 选中颜色列表
+  List<String> colorKeys = [];
+
+  // 颜色选中
+  void onColorTap(List<String> keys) {
+    colorKeys = keys;
+    update(["filter_colors"]);
   }
 
   /////////////////////////////////

@@ -71,6 +71,21 @@ class FilterView extends GetView<SearchFilterController> {
     );
   }
 
+  // 颜色选择
+  Widget _buildColors() {
+    return GetBuilder<SearchFilterController>(
+      id: "filter_colors",
+      builder: (_) {
+        return ColorsListWidget(
+          onTap: controller.onColorTap,
+          itemList: controller.colors,
+          keys: controller.colorKeys,
+          size: 24,
+        ).paddingBottom(AppSpace.listRow * 2);
+      },
+    );
+  }
+
   Widget _buildView(BuildContext context) {
     return <Widget>[
           // 顶部
@@ -83,6 +98,10 @@ class FilterView extends GetView<SearchFilterController> {
           // 尺寸
           _buildTitle(LocaleKeys.searchFilterSize.tr),
           _buildSizes(context),
+
+          // 颜色
+          _buildTitle(LocaleKeys.searchFilterColor.tr),
+          _buildColors(),
         ]
         .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
         .paddingHorizontal(AppSpace.page);
