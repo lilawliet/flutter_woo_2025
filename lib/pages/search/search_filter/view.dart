@@ -32,6 +32,8 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       // 筛选 Filter
       ButtonWidget.outline(
         LocaleKeys.searchFilter.tr,
+        // 点击事件
+        onTap: controller.onFilterOpenTap, // 加入事件
         // 反向
         reverse: true,
         // 主轴对齐
@@ -80,6 +82,9 @@ class SearchFilterPage extends GetView<SearchFilterController> {
       id: "search_filter",
       builder: (_) {
         return Scaffold(
+          // key
+          key: controller.scaffoldKey, // 右侧弹出 Drawer
+          endDrawer: const Drawer(child: SafeArea(child: FilterView())),
           // 导航
           appBar: mainAppBarWidget(
             // 返回按钮
