@@ -1,3 +1,4 @@
+import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
@@ -131,4 +132,24 @@ class MyAddressController extends GetxController {
   // void onClose() {
   //   super.onClose();
   // }
+
+  // 国家选择
+  void onCountryPicker() async {
+    BottomSheetWidget.show(
+      context: Get.context!,
+      titleString: "国家",
+      padding: 20,
+      content: const Text("国家 content").height(200),
+    );
+  }
+
+  // 洲省市选择
+  void onStatesPicker() async {
+    BottomSheetWidget.show(
+      context: Get.context!,
+      titleString: "州/省",
+      padding: 20,
+      content: const Text("州/省 content").height(200),
+    );
+  }
 }

@@ -14,6 +14,7 @@ class InputWidget extends StatefulWidget {
     this.cleanable = true,
     this.readOnly = false,
     this.onChanged,
+    this.onTap,
     this.keyboardType,
     this.autofocus,
     // required this.focusNode,
@@ -45,6 +46,9 @@ class InputWidget extends StatefulWidget {
 
   /// 输入变化回调
   final Function(String)? onChanged;
+
+  /// 点击事件
+  final Function()? onTap;
 
   /// 输入法类型
   final TextInputType? keyboardType;
@@ -131,27 +135,39 @@ class _InputWidgetState extends State<InputWidget> {
         : null;
 
     // 2 输入框
-    Widget textField = EditableText(
-      controller: controller,
-      focusNode: focusNode,
-      readOnly: widget.readOnly ?? false,
-      style: TextStyle(color: colorScheme.onSurface, fontSize: 16),
-      cursorColor: colorScheme.onSurface,
-      backgroundCursorColor: Colors.transparent,
-      onTapOutside: (tapOutside) {
-        focusNode.unfocus();
-      },
-      obscureText: widget.obscureText == true && showPassword == false,
-      onChanged: (value) {
-        setState(() {
-          showClean = value.isNotEmpty;
-        });
-        widget.onChanged?.call(value);
-      },
-      keyboardType: widget.keyboardType,
-      autofocus: widget.autofocus ?? false,
-      maxLines: 1, // 限制为单行
-    );
+    Widget textField = const SizedBox();
+    if (widget.readOnly == true) {
+      // 只读
+      textField = TextWidget.label(
+        controller.text,
+        color: colorScheme.onSurface,
+      ).width(double.infinity);
+      // 点击事件
+      if (widget.onTap != null) {
+        textField = textField.onTap(widget.onTap);
+      }
+    } else {
+      textField = EditableText(
+        controller: controller,
+        focusNode: focusNode,
+        style: TextStyle(color: colorScheme.onSurface, fontSize: 16),
+        cursorColor: colorScheme.onSurface,
+        backgroundCursorColor: Colors.transparent,
+        onTapOutside: (tapOutside) {
+          focusNode.unfocus();
+        },
+        obscureText: widget.obscureText == true && showPassword == false,
+        onChanged: (value) {
+          setState(() {
+            showClean = value.isNotEmpty;
+          });
+          widget.onChanged?.call(value);
+        },
+        keyboardType: widget.keyboardType,
+        autofocus: widget.autofocus ?? false,
+        maxLines: 1, // 限制为单行
+      );
+    }
 
     // 输入区域
     Widget inputArea = Stack(

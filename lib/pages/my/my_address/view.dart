@@ -56,6 +56,13 @@ class MyAddressPage extends GetView<MyAddressController> {
           validator: Validatorless.multiple([
             Validatorless.required("The field is obligatory"),
           ]),
+          suffix: IconWidget.icon(
+            Icons.arrow_drop_down,
+            size: 20,
+            onTap: controller.onCountryPicker,
+          ),
+          readOnly: true,
+          onTap: controller.onCountryPicker,
         ),
 
         // State
@@ -65,6 +72,13 @@ class MyAddressPage extends GetView<MyAddressController> {
           validator: Validatorless.multiple([
             Validatorless.required("The field is obligatory"),
           ]),
+          suffix: IconWidget.icon(
+            Icons.arrow_drop_down,
+            size: 20,
+            onTap: controller.onStatesPicker,
+          ),
+          readOnly: true,
+          onTap: controller.onStatesPicker,
         ),
 
         // Post Code
