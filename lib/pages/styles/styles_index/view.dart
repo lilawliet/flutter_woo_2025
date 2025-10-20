@@ -55,6 +55,11 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => controller.onThemeSelected("system"),
           title: Text("系统 : ${ConfigService.to.themeMode}"),
         ),
+        // ListTile 列表项
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesListTile),
+          title: const Text("ListTile 列表项"),
+        ),
       ],
     );
   }

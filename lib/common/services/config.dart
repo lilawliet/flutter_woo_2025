@@ -90,4 +90,14 @@ class ConfigService extends GetxService {
     // 设置系统样式
     AppTheme.setSystemStyle();
   }
+
+  // 切换主题
+  void switchThemeMode() {
+    // 品乓方式切换
+    themeMode = themeMode == AdaptiveThemeMode.light
+        ? AdaptiveThemeMode.dark
+        : AdaptiveThemeMode.light;
+
+    setThemeMode(themeMode.name);
+  }
 }
