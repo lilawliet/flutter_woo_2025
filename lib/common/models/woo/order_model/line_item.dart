@@ -1,4 +1,5 @@
-import 'product.dart';
+// import 'product.dart';
+import '../product_model/product_model.dart';
 
 class LineItem {
   int? id;
@@ -16,7 +17,7 @@ class LineItem {
   String? sku;
   int? price;
   dynamic parentName;
-  Product? product;
+  ProductModel? product;
 
   LineItem({
     this.id,
@@ -55,7 +56,7 @@ class LineItem {
     parentName: json['parent_name'] as dynamic,
     product: json['product'] == null
         ? null
-        : Product.fromJson(json['product'] as Map<String, dynamic>),
+        : ProductModel.fromJson(json['product'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {
