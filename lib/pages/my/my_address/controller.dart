@@ -155,8 +155,11 @@ class MyAddressController extends GetxController {
 
   // 国家选择
   void onCountryPicker() async {
+    final context = Get.context;
+    if (context == null) return;
+
     BottomSheetWidget.show(
-      context: Get.context!,
+      context: context,
       titleString: "国家",
       padding: 20,
       content: Picker(
@@ -183,8 +186,11 @@ class MyAddressController extends GetxController {
 
   // 洲省市选择
   void onStatesPicker() async {
+    final context = Get.context;
+    if (context == null) return;
+
     BottomSheetWidget.show(
-      context: Get.context!,
+      context: context,
       titleString: "州/省",
       padding: 20,
       content: const Text("州/省 content").height(200),

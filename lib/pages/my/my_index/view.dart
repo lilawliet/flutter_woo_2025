@@ -147,20 +147,6 @@ class MyIndexPage extends GetView<MyIndexController> {
         onTap: () => Get.toNamed(RouteNames.myProfileEdit),
       ),
 
-      // Billing Address
-      _buildListItem(
-        txtTitle: LocaleKeys.myBtnBillingAddress.tr,
-        svgPath: AssetsSvgs.pHomeSvg,
-        onTap: () => Get.toNamed(RouteNames.myProfileEdit),
-      ),
-
-      // Billing Address
-      _buildListItem(
-        txtTitle: LocaleKeys.myBtnShippingAddress.tr,
-        svgPath: AssetsSvgs.pHomeSvg,
-        onTap: () => Get.toNamed(RouteNames.myProfileEdit),
-      ),
-
       // Language
       _buildListItem(
         txtTitle: LocaleKeys.myBtnLanguage.tr,
