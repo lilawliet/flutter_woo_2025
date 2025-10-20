@@ -15,6 +15,21 @@ class MyAddressPage extends GetView<MyAddressController> {
       key: controller.formKey, //设置globalKey，用于后面获取FormState
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: <Widget>[
+        // Country
+        InputFormFieldWidget(
+          controller: controller.countryController,
+          labelText: LocaleKeys.addressCountry.tr,
+          validator: Validatorless.multiple([
+            Validatorless.required("The field is obligatory"),
+          ]),
+          suffix: IconWidget.icon(
+            Icons.arrow_drop_down,
+            size: 20,
+            onTap: controller.onCountryPicker,
+          ),
+          readOnly: true,
+          onTap: controller.onCountryPicker,
+        ),
         // first name
         InputFormFieldWidget(
           labelText: LocaleKeys.addressFirstName.tr,
@@ -182,7 +197,6 @@ class MyAddressPage extends GetView<MyAddressController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MyAddressController>(
-      init: MyAddressController(),
       id: "my_address",
       builder: (_) {
         return Scaffold(

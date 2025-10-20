@@ -200,7 +200,7 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {
-    super.dispose();
+    super.onClose();
     // 刷新控制器释放
     refreshController.dispose();
   }
