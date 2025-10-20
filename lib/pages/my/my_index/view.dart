@@ -188,6 +188,19 @@ class MyIndexPage extends GetView<MyIndexController> {
         svgPath: AssetsSvgs.pCurrencySvg,
         onTap: () => Get.toNamed(RouteNames.stylesStylesIndex),
       ),
+      // Billing Address
+      _buildListItem(
+        txtTitle: LocaleKeys.myBtnBillingAddress.tr,
+        svgPath: AssetsSvgs.pHomeSvg,
+        onTap: () => controller.onToAddress("Billing"), // 类型 billing
+      ),
+
+      // Shipping Address
+      _buildListItem(
+        txtTitle: LocaleKeys.myBtnShippingAddress.tr,
+        svgPath: AssetsSvgs.pHomeSvg,
+        onTap: () => controller.onToAddress("Shipping"), // 类型 shipping
+      ),
     ].toColumn().card().paddingVertical(AppSpace.page);
   }
 
