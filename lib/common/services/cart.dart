@@ -68,4 +68,25 @@ class CartService extends GetxService {
       lineItems.fold<double>(0, (double previousValue, LineItem element) {
         return previousValue + double.parse(element.total ?? "0");
       });
+
+  /// 优惠券列表
+  final List<CouponsModel> lineCoupons = [];
+
+  /// 使用优惠券
+  bool applyCoupon(CouponsModel item) {
+    // 是否有重复
+    int index = lineCoupons.indexWhere((element) => element.id == item.id);
+    if (index >= 0) {
+      return false;
+    }
+    // 添加
+    lineCoupons.add(item);
+    return true;
+  }
+
+  /// 折扣
+  double get discount =>
+      lineCoupons.fold<double>(0, (double previousValue, CouponsModel element) {
+        return previousValue + (double.parse(element.amount ?? "0"));
+      });
 }

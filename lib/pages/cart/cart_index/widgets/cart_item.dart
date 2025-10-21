@@ -11,7 +11,18 @@ class CartItem extends StatelessWidget {
   /// 订单数据
   final LineItem lineItem;
 
-  const CartItem({super.key, required this.lineItem});
+  /// 是否全选
+  final bool isSelected;
+
+  /// 选中事件
+  final Function(bool?)? onSelect;
+
+  const CartItem({
+    super.key,
+    required this.lineItem,
+    required this.isSelected,
+    required this.onSelect,
+  });
 
   // 主视图
   Widget _buildView() {
@@ -20,6 +31,10 @@ class CartItem extends StatelessWidget {
 
     return <Widget>[
       // 单选框
+      CheckboxWidget(
+        checked: isSelected,
+        onChanged: onSelect,
+      ).paddingRight(AppSpace.iconTextSmail),
 
       // 图片
       ImageWidget.img(

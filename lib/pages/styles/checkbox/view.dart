@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -8,7 +9,13 @@ class CheckboxPage extends GetView<CheckboxController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(child: Text("CheckboxPage"));
+    return CheckboxWidget(
+      checked: controller.checked,
+      title: "Typography",
+      description:
+          "There are three display styles in the default type scale: Large, medium, and small. As the largest text on the screen, display styles are reserved for short, important text or numerals. They work best on large screens.",
+      onChanged: controller.onChanged,
+    ).paddingAll(AppSpace.page);
   }
 
   @override

@@ -10,3 +10,4 @@ export 'avatar.dart';
 export 'bar_item.dart';
 export 'list_tile.dart';
 export 'bottom_sheet.dart';
+export 'checkbox.dart';

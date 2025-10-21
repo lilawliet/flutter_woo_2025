@@ -3,6 +3,13 @@ import 'package:get/get.dart';
 class CheckboxController extends GetxController {
   CheckboxController();
 
+  bool checked = false;
+
+  void onChanged(bool? checked) {
+    this.checked = checked!;
+    update(["checkbox"]);
+  }
+
   _initData() {
     update(["checkbox"]);
   }
