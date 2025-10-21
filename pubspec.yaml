@@ -78,7 +78,7 @@ dependencies:
   # 选择器
   flutter_picker_plus: ^1.5.4
   # 日期
-  intl: ^0.19.0
+  intl: ^0.20.2
 
 
 dev_dependencies:

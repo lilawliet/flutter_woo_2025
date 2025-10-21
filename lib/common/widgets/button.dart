@@ -330,7 +330,6 @@ class _ButtonWidgetState extends State<ButtonWidget> {
       case ButtonWidgetVariant.icon:
         color = widget.textColor ?? colorScheme.onPrimaryContainer;
         break;
-      default:
     }
 
     return color;

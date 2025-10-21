@@ -185,7 +185,7 @@ class OrderDetailsPage extends GetView<OrderDetailsController> {
         _buildBillAddress(context),
 
         // 商品列表
-        _buildProductsList(),
+        _buildProductsList(context),
 
         // 小计
         _buildTotal(),
