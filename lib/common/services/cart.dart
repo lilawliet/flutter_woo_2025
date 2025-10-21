@@ -19,12 +19,12 @@ class CartService extends GetxService {
       // 存在，更新数量
       item = lineItems.elementAt(index);
       item.quantity = item.quantity! + 1;
-      item.price = int.parse(item.product?.price ?? "0");
+      item.price = double.parse(item.product?.price ?? "0");
       item.total = '${item.price! * item.quantity!}';
     } else {
       // 不存在，添加
       item.quantity = 1;
-      item.price = int.parse(item.product?.price ?? "0");
+      item.price = double.parse(item.product?.price ?? "0");
       item.total = '${item.price! * item.quantity!}';
       lineItems.add(item);
     }
@@ -48,7 +48,7 @@ class CartService extends GetxService {
       (element) => element.productId == productId,
     );
     item.quantity = quantity;
-    item.price = int.parse(item.product?.price ?? "0");
+    item.price = double.parse(item.product?.price ?? "0");
     item.total = '${item.price! * item.quantity!}';
   }
 

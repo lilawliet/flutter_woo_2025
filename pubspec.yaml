@@ -71,9 +71,15 @@ dependencies:
   pull_to_refresh_flutter3: ^2.0.2
   # 图片预览
   photo_view: ^0.15.0
+  # 下拉菜单
   dropdown_button2: ^2.3.9
+  # 轮播图
   another_xlider: ^3.0.2
+  # 选择器
   flutter_picker_plus: ^1.5.4
+  # 日期
+  intl: ^0.19.0
+
 
 dev_dependencies:
   flutter_test:

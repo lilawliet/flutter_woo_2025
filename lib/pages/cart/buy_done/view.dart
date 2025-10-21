@@ -1,4 +1,6 @@
+import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -8,7 +10,23 @@ class BuyDonePage extends GetView<BuyDoneController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(child: Text("BuyDonePage"));
+    return <Widget>[
+      // 图
+      ImageWidget.img(
+        AssetsImages.orderConfirmedPng,
+        height: 300.w,
+      ).paddingBottom(40.w),
+
+      // 文字
+      TextWidget.h4(LocaleKeys.orderConfirmationTitle.tr).paddingBottom(10.w),
+      TextWidget.label(LocaleKeys.orderConfirmationDesc.tr).paddingBottom(50.w),
+
+      // 返回按钮
+      ButtonWidget.primary(
+        LocaleKeys.commonBottomBack.tr,
+        onTap: () => Get.back(),
+      ).width(100.w),
+    ].toColumn(mainAxisAlignment: MainAxisAlignment.center).center();
   }
 
   @override
@@ -17,10 +35,7 @@ class BuyDonePage extends GetView<BuyDoneController> {
       init: BuyDoneController(),
       id: "buy_done",
       builder: (_) {
-        return Scaffold(
-          appBar: AppBar(title: const Text("buy_done")),
-          body: SafeArea(child: _buildView()),
-        );
+        return Scaffold(body: SafeArea(child: _buildView()));
       },
     );
   }
