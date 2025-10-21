@@ -1,5 +1,6 @@
 import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_woo_2025/common/components/steps.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +29,36 @@ class OrderDetailsPage extends GetView<OrderDetailsController> {
 
   // 横向状态
   Widget _buildHorizontalStatus() {
-    return const Text("横向状态");
+    return <Widget>[
+      const StepHorizontalItemWidget(
+        statusName: "Pending",
+        status: StepStatus.success,
+      ),
+      const StepHorizontalItemWidget(
+        statusName: "Confirmed",
+        status: StepStatus.success,
+      ),
+      const StepHorizontalItemWidget(
+        statusName: "Processing",
+        status: StepStatus.running,
+      ),
+      const StepHorizontalItemWidget(
+        statusName: "Picked",
+        status: StepStatus.none,
+      ),
+      const StepHorizontalItemWidget(
+        statusName: "Shipped",
+        status: StepStatus.none,
+      ),
+      const StepHorizontalItemWidget(
+        statusName: "Delivered",
+        status: StepStatus.none,
+      ),
+    ].toRow().padding(
+      bottom: AppSpace.listRow,
+      left: AppSpace.page,
+      right: AppSpace.page,
+    );
   }
 
   // 纵向状态
