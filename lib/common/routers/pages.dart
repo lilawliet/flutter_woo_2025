@@ -22,10 +22,10 @@ class RoutePages {
 
   // 列表
   static List<GetPage> list = [
-    GetPage(
-      name: RouteNames.cartApplyPromoCode,
-      page: () => const ApplyPromoCodePage(),
-    ),
+    // GetPage(
+    //   name: RouteNames.cartApplyPromoCode,
+    //   page: () => const ApplyPromoCodePage(),
+    // ),
     GetPage(name: RouteNames.cartBuyDone, page: () => const BuyDonePage()),
     // GetPage(name: RouteNames.cartBuyNow, page: () => const BuyNowPage()),
     GetPage(name: RouteNames.cartCartIndex, page: () => const CartIndexPage()),
