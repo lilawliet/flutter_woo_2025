@@ -112,6 +112,8 @@ class OrderListController extends GetxController {
     refreshController.dispose();
   }
 
-  // 订单详情
-  void onOrderItemTap(OrderModel order) {}
+  /// 订单详情
+  void onOrderItemTap(OrderModel order) {
+    Get.toNamed(RouteNames.myOrderDetails, arguments: order);
+  }
 }
