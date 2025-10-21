@@ -2,27 +2,35 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import 'index.dart';
 
 class ProfileEditPage extends GetView<ProfileEditController> {
   const ProfileEditPage({super.key});
-
   // 头像
   Widget _buildAvatar(BuildContext context) {
     return ListTileWidget(
           title: TextWidget.label(LocaleKeys.profileEditMyPhoto.tr),
           trailing: [
-            ImageWidget.img(
-              // UserService.to.profile.avatarUrl,
-              "https://ducafecat-pub.oss-cn-qingdao.aliyuncs.com/avatar/00258VC3ly1gty0r05zh2j60ut0u0tce02.jpg",
-              width: 50.w,
-              height: 50.w,
-              fit: BoxFit.cover,
-              radius: 25.w,
-            ),
+            controller.userPhoto != null
+                ? AssetEntityImage(
+                    controller.userPhoto!,
+                    width: 50.w,
+                    height: 50.w,
+                    fit: BoxFit.cover,
+                  ).clipOval()
+                : ImageWidget.img(
+                    // UserService.to.profile.avatarUrl,
+                    "https://ducafecat-pub.oss-cn-qingdao.aliyuncs.com/avatar/00258VC3ly1gty0r05zh2j60ut0u0tce02.jpg",
+                    width: 50.w,
+                    height: 50.w,
+                    fit: BoxFit.cover,
+                    radius: 25.w,
+                  ),
           ],
           padding: EdgeInsets.all(AppSpace.card),
+          onTap: controller.onSelectPhoto,
         )
         .card(
           color: context.colors.scheme.surface,

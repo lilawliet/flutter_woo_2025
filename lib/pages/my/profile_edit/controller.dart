@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 class ProfileEditController extends GetxController {
   ProfileEditController();
+
+  // 头像图片
+  AssetEntity? userPhoto;
+
+  // 选取照片
+  void onSelectPhoto() {
+    BottomSheetWidget.show(
+      context: Get.context!,
+      titleString: "Select photo",
+      padding: 20,
+      content: PickerImageWidget(
+        // 拍照
+        onTapTake: (AssetEntity? result) async {
+          if (result != null) {
+            userPhoto = result;
+            update(["profile_edit"]);
+          }
+        },
+        // 相册
+        onTapAlbum: (List<AssetEntity>? result) async {
+          if (result != null && result.isNotEmpty) {
+            userPhoto = result.first;
+            update(["profile_edit"]);
+          }
+        },
+      ),
+    );
+  }
 
   // 表单 form
   GlobalKey formKey = GlobalKey<FormState>();
