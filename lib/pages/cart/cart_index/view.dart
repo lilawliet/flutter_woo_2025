@@ -20,6 +20,8 @@ class CartIndexPage extends GetView<CartIndexController> {
           // 选中回调
           onSelect: (isSelected) =>
               controller.onSelect(item.productId!, isSelected!),
+          onChangeQuantity: (quantity) =>
+              controller.onChangeQuantity(item, quantity),
         ).paddingAll(AppSpace.card).card();
       },
       separatorBuilder: (BuildContext context, int index) {

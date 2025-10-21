@@ -17,11 +17,15 @@ class CartItem extends StatelessWidget {
   /// 选中事件
   final Function(bool?)? onSelect;
 
+  /// 修改数量事件
+  final Function(int)? onChangeQuantity;
+
   const CartItem({
     super.key,
     required this.lineItem,
     required this.isSelected,
     required this.onSelect,
+    required this.onChangeQuantity,
   });
 
   // 主视图
@@ -75,6 +79,10 @@ class CartItem extends StatelessWidget {
           TextWidget.label("\$ ${lineItem.total}").expanded(),
 
           // 数量
+          QuantityWidget(
+            quantity: lineItem.quantity ?? 0,
+            onChange: (quantity) => onChangeQuantity?.call(quantity),
+          ),
 
           // end
         ].toRow().paddingTop(AppSpace.listRow),
