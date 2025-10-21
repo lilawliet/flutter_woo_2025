@@ -1,6 +1,5 @@
 import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_woo_2025/common/components/steps.dart';
 import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
@@ -63,12 +62,90 @@ class OrderDetailsPage extends GetView<OrderDetailsController> {
 
   // 纵向状态
   Widget _buildVerticalStatus() {
-    return const Text("纵向状态");
+    return <Widget>[
+      const StepVerticalItemWidget(
+        statusName: "Delivered",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.none,
+      ),
+      const StepVerticalItemWidget(
+        statusName: "Shipped",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.none,
+      ),
+      const StepVerticalItemWidget(
+        statusName: "Picked",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.running,
+      ),
+      const StepVerticalItemWidget(
+        statusName: "Processing",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.success,
+      ),
+      const StepVerticalItemWidget(
+        statusName: "Confirm",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.success,
+      ),
+      const StepVerticalItemWidget(
+        statusName: "Pending",
+        statusDateTime: "20 Jan, 2019",
+        statusDes:
+            "Lorem Ipsum is simply dumy text of printing and typesetting industry.",
+        status: StepStatus.success,
+      ),
+    ].toColumn().padding(
+      bottom: AppSpace.listRow,
+      left: AppSpace.page,
+      right: AppSpace.page,
+    );
   }
 
   // 寄件地、目的地
-  Widget _buildBillAddress() {
-    return const Text("寄件地、目的地");
+  Widget _buildBillAddress(BuildContext context) {
+    return <Widget>[
+          // Bill From, 商家发货地址写死
+          BuildBillAddress(
+            title: LocaleKeys.orderDetailsBillFrom.tr,
+            address: "Adidas Shoes",
+            city: "Kingston",
+            state: "New York",
+            country: "United States",
+            phone: "+44-213 543 230",
+          ).expanded(),
+
+          // 间距
+          SizedBox(width: AppSpace.iconTextMedium),
+
+          // Bill To
+          BuildBillAddress(
+            title: LocaleKeys.orderDetailsBillTo.tr,
+            address: controller.order.shipping?.address1,
+            city: controller.order.shipping?.city,
+            state: controller.order.shipping?.state,
+            country: controller.order.shipping?.country,
+            phone: controller.order.billing?.phone,
+          ).expanded(),
+        ]
+        .toRow()
+        .paddingAll(AppSpace.card)
+        .card(
+          color: context.colors.scheme.surface,
+          margin: EdgeInsets.zero,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        )
+        .paddingBottom(AppSpace.listRow);
   }
 
   // 商品列表
@@ -95,7 +172,7 @@ class OrderDetailsPage extends GetView<OrderDetailsController> {
         _buildVerticalStatus(),
 
         // 寄件地、目的地
-        _buildBillAddress(),
+        _buildBillAddress(context),
 
         // 商品列表
         _buildProductsList(),
