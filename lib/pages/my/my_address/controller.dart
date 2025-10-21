@@ -1,4 +1,3 @@
-import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_picker_plus/picker.dart';
 import 'package:flutter_woo_2025/common/index.dart';
@@ -11,7 +10,7 @@ class MyAddressController extends GetxController {
   final String type = Get.arguments['type'] ?? "";
 
   // 表单 form
-  GlobalKey formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   // 输入框控制器
   TextEditingController firstNameController = TextEditingController();
@@ -182,6 +181,12 @@ class MyAddressController extends GetxController {
             final selectedCountry = selectedValues.last as String;
             countryController.text = selectedCountry;
             _filterStates(selectedCountry); // 加入筛选 洲省
+
+            // 触发表单重新验证
+            if (formKey.currentState != null) {
+              (formKey.currentState as FormState).validate();
+            }
+
             update(["my_address"]);
           }
         },
@@ -191,8 +196,11 @@ class MyAddressController extends GetxController {
 
   // 洲省市选择
   void onStatesPicker() async {
+    final context = Get.context;
+    if (context == null) return;
+
     BottomSheetWidget.show(
-      context: Get.context!,
+      context: context,
       titleString: "州/省",
       padding: 20,
       content: Picker(
@@ -210,6 +218,12 @@ class MyAddressController extends GetxController {
           if (selectedValues.isNotEmpty) {
             final selectedState = selectedValues.last as String;
             statesController.text = selectedState;
+
+            // 触发表单重新验证
+            if (formKey.currentState != null) {
+              (formKey.currentState as FormState).validate();
+            }
+
             update(["my_address"]);
           }
         },

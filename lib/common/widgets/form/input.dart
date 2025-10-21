@@ -118,4 +118,31 @@ class InputFormFieldWidget extends FormField<String> {
 class InputFormWidgetFieldState extends FormFieldState<String> {
   @override
   InputFormFieldWidget get widget => super.widget as InputFormFieldWidget;
+
+  @override
+  void initState() {
+    super.initState();
+    // 监听 controller 的变化
+    widget.controller?.addListener(_onControllerChanged);
+  }
+
+  @override
+  void didUpdateWidget(InputFormFieldWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.controller != oldWidget.controller) {
+      oldWidget.controller?.removeListener(_onControllerChanged);
+      widget.controller?.addListener(_onControllerChanged);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.controller?.removeListener(_onControllerChanged);
+    super.dispose();
+  }
+
+  void _onControllerChanged() {
+    // 当 controller 的值改变时，更新 FormField 的状态
+    didChange(widget.controller?.text);
+  }
 }

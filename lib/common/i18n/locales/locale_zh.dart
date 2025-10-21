@@ -134,7 +134,7 @@ Map<String, String> localeZh = {
   LocaleKeys.addressCity: '城市',
   LocaleKeys.addressAddress1: '地址 1',
   LocaleKeys.addressAddress2: '地址 2',
-  LocaleKeys.addressCompany: '国家',
+  LocaleKeys.addressCompany: '公司',
   LocaleKeys.addressPhoneNumber: '电话号码',
   LocaleKeys.addressEmail: '电子邮件',
 
