@@ -27,7 +27,7 @@ class RoutePages {
       page: () => const ApplyPromoCodePage(),
     ),
     GetPage(name: RouteNames.cartBuyDone, page: () => const BuyDonePage()),
-    GetPage(name: RouteNames.cartBuyNow, page: () => const BuyNowPage()),
+    // GetPage(name: RouteNames.cartBuyNow, page: () => const BuyNowPage()),
     GetPage(name: RouteNames.cartCartIndex, page: () => const CartIndexPage()),
     GetPage(name: RouteNames.goodsCategory, page: () => const CategoryPage()),
     GetPage(name: RouteNames.goodsHome, page: () => const HomePage()),

@@ -173,7 +173,10 @@ class _ProductDetailsViewGetX extends GetView<ProductDetailsController> {
           SizedBox(width: AppSpace.iconTextLarge),
 
           // 立刻购买
-          ButtonWidget.primary(LocaleKeys.gDetailBtnBuy.tr).expanded(),
+          ButtonWidget.primary(
+            LocaleKeys.gDetailBtnBuy.tr,
+            onTap: controller.onCheckoutTap, // 立刻购买事件
+          ).expanded(),
         ]
         .toRow(
           mainAxisSize: MainAxisSize.max,

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_woo_2025/common/index.dart';
+import 'package:flutter_woo_2025/pages/index.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
@@ -325,5 +326,26 @@ class ProductDetailsController extends GetxController
     CartService.to.addCart(LineItem(productId: productId, product: product));
     // 返回、或者去购物车
     Get.back();
+  }
+
+  // 立刻购买 checkout
+  void onCheckoutTap() async {
+    // 检查是否登录
+    if (!await UserService.to.checkIsLogin()) {
+      return;
+    }
+
+    // 检查空
+    if (product == null || product?.id == null) {
+      Loading.error("product is empty");
+      return;
+    }
+
+    // 立刻购买 checkout
+    BottomSheetWidget.show(
+      context: Get.context!,
+      // titleString: "支付确认",
+      content: BuyNowPage(product: product!),
+    );
   }
 }

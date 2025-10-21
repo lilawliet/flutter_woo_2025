@@ -1,9 +1,41 @@
+import 'package:flutter_woo_2025/common/index.dart';
 import 'package:get/get.dart';
 
 class BuyNowController extends GetxController {
-  BuyNowController();
+  BuyNowController({required this.product});
+
+  // 商品详情
+  final ProductModel product;
+
+  // 支付方式图标
+  List<String> paymentList = [
+    AssetsImages.pVisaPng,
+    AssetsImages.pCashPng,
+    AssetsImages.pMastercardPng,
+    AssetsImages.pPaypalPng,
+  ];
+
+  // 送货地址
+  String shippingAddress = "";
+
+  // 下单 checkout
+  void onCheckout() async {}
+
+  // goto 送货地址修改
+  Future<void> onShippingTap() async {
+    var result = await Get.toNamed(
+      RouteNames.myMyAddress,
+      arguments: {"type": "Shipping"},
+    );
+    if (result != null && result == true) {
+      shippingAddress = UserService.to.shipping;
+      update(["buy_now"]);
+    }
+  }
 
   _initData() {
+    shippingAddress = UserService.to.shipping;
+
     update(["buy_now"]);
   }
 
