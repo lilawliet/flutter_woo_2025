@@ -24,19 +24,37 @@ class BuyNowPage extends GetView<BuyNowController> {
     return List<Widget>.generate(
           controller.paymentList.length,
           (index) =>
-              ImageWidget.img(
-                    controller.paymentList[index],
+              Container(
                     width: 106.w,
                     height: 50.w,
-                  )
-                  .decorated(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: context.colors.scheme.surfaceContainer,
-                      width: 1,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color:
+                            controller.selectedPayment ==
+                                controller.paymentList[index]
+                            ? context.colors.scheme.primary
+                            : context.colors.scheme.surfaceContainer,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(AppRadius.button),
+                      ),
                     ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(AppRadius.button),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(AppRadius.button),
+                      ),
+                      child: ImageWidget.img(
+                        controller.paymentList[index],
+                        width: 106.w,
+                        height: 50.w,
+                      ),
+                    ),
+                  )
+                  .onTap(
+                    () => controller.onSelectPayment(
+                      controller.paymentList[index],
                     ),
                   )
                   .paddingRight(AppSpace.iconTextSmail),

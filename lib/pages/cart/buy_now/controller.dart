@@ -16,6 +16,15 @@ class BuyNowController extends GetxController {
     AssetsImages.pPaypalPng,
   ];
 
+  // 选中的支付方式
+  String selectedPayment = "";
+
+  // 选择支付方式
+  void onSelectPayment(String payment) {
+    selectedPayment = payment;
+    update(["buy_now"]);
+  }
+
   // 送货地址
   String shippingAddress = "";
 
