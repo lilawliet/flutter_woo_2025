@@ -149,8 +149,18 @@ class OrderDetailsPage extends GetView<OrderDetailsController> {
   }
 
   // 商品列表
-  Widget _buildProductsList() {
-    return const Text("商品列表");
+  Widget _buildProductsList(BuildContext context) {
+    return BuildProductList(
+          lineItems: controller.order.lineItems ?? [],
+          currencySymbol: controller.order.currencySymbol,
+        )
+        .paddingAll(AppSpace.card)
+        .card(
+          color: context.colors.scheme.surface,
+          margin: EdgeInsets.zero,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        )
+        .paddingBottom(AppSpace.listRow);
   }
 
   // 小计
