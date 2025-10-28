@@ -21,13 +21,16 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.lawlie7.woo2025"
+        applicationId = "com.peiweihuang.woo2025.dev"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["JPUSH_PKGNAME"] = "com.peiweihuang.woo2025.dev"
+        manifestPlaceholders["JPUSH_APPKEY"] = "def83d0e6b8518901bd45022" // NOTE: JPush 上注册的包名对应的 Appkey.
+        manifestPlaceholders["JPUSH_CHANNEL"] = "developer-default" //暂时填写默认值即可.
     }
 
     buildTypes {
