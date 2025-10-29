@@ -105,5 +105,6 @@ class RoutePages {
       page: () => const UserAgreementPage(),
     ),
     GetPage(name: RouteNames.systemWelcome, page: () => const WelcomePage()),
+    GetPage(name: RouteNames.utilsSocket, page: () => const SocketPage()),
   ];
 }

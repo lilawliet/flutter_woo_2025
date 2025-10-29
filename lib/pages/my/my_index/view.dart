@@ -187,6 +187,13 @@ class MyIndexPage extends GetView<MyIndexController> {
         svgPath: AssetsSvgs.pHomeSvg,
         onTap: () => controller.onToAddress("Shipping"), // 类型 shipping
       ),
+
+      // Socket
+      _buildListItem(
+        txtTitle: "Socket",
+        svgPath: AssetsSvgs.pHomeSvg,
+        onTap: () => Get.toNamed(RouteNames.utilsSocket),
+      ),
     ].toColumn().card().paddingVertical(AppSpace.page);
   }
 

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:validatorless/validatorless.dart';
 
 import 'index.dart';
-import 'widgets/widgets.dart';
 
 class LoginPage extends GetView<LoginController> {
   const LoginPage({super.key});
